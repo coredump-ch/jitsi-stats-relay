@@ -17,6 +17,7 @@ Set the following env variables:
 - `INFLUXDB_PORT`: InfluxDB port
 - `INFLUXDB_USER`: InfluxDB username
 - `INFLUXDB_PASS`: InfluxDB password
+- `INTERVAL_SECONDS`: Check interval in seconds, defaults to 10
 
 You can also place those env variables in an `.env` file, they will be read
 automatically.

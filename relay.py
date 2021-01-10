@@ -2,6 +2,7 @@
 Relay stats from Jitsi JVB to InfluxDB.
 """
 import os
+import time
 from typing import Any, Dict
 
 import dotenv
@@ -24,6 +25,9 @@ def env(name: str, default: str) -> str:
 
 # Config from .env file
 dotenv.load_dotenv(dotenv.find_dotenv())
+
+# General
+INTERVAL_SECONDS = int(env('INTERVAL_SECONDS', '10'))
 
 # JVB
 JVB_COLIBRI_HOST = require_env('JVB_HOST')
@@ -86,4 +90,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
+        time.sleep(INTERVAL_SECONDS)
