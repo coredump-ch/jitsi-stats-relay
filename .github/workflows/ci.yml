@@ -1,0 +1,26 @@
+on:
+  push:
+  schedule:
+    - cron: '30 3 * * 2'
+
+name: CI
+
+jobs:
+  docker_image:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker image
+        run: |
+          docker build \
+            --no-cache \
+            -t coredump/jitsi-stats-relay:latest \
+            -t coredump/jitsi-stats-relay:main \
+            .
+      - name: Push Docker image
+        run: |
+          docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}" && \
+          docker push coredump/jitsi-stats-relay
+
