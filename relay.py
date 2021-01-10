@@ -28,6 +28,7 @@ dotenv.load_dotenv(dotenv.find_dotenv())
 # JVB
 JVB_COLIBRI_HOST = require_env('JVB_HOST')
 JVB_COLIBRI_PORT = env('JVB_PORT', '8080')
+JVB_COLIBRI_PROTO = env('JVB_PROTO', 'http')
 
 # InfluxDB
 INFLUXDB_HOST = require_env('INFLUXDB_HOST')
@@ -63,7 +64,11 @@ def log_to_influxdb(
 
 def main():
     # Fetch stats
-    r = requests.get('{}:{}/colibri/stats'.format(JVB_COLIBRI_HOST, JVB_COLIBRI_PORT))
+    r = requests.get('{}://{}:{}/colibri/stats'.format(
+        JVB_COLIBRI_PROTO,
+        JVB_COLIBRI_HOST,
+        JVB_COLIBRI_PORT,
+    ))
     r.raise_for_status()
     stats = r.json()
 

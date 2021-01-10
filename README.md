@@ -12,6 +12,7 @@ Set the following env variables:
 
 - `JVB_HOST`: The JVB colibri host
 - `JVB_PORT`: The JVB colibri port (default 8080)
+- `JVB_PROTO`: The JVB colibri protocol (default http)
 - `INFLUXDB_HOST`: InfluxDB hostname
 - `INFLUXDB_PORT`: InfluxDB port
 - `INFLUXDB_USER`: InfluxDB username
