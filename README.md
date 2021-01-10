@@ -1,3 +1,4 @@
+[![Build status](https://img.shields.io/github/workflow/status/coredump-ch/jitsi-stats-relay/CI/main)](https://github.com/coredump-ch/jitsi-stats-relay/actions?query=workflow%3ACI)
 [![Docker][docker-badge]][docker]
 
 # Jitsi JVB InfluxDB Stats Relay
@@ -23,7 +24,7 @@ automatically.
 
 A docker image is built at
 [coredump/jitsi-stats-relay](https://hub.docker.com/r/coredump/jitsi-stats-relay/)
-for every push to master.
+for every push to main.
 
 <!-- Badges -->
 [docker]: https://hub.docker.com/r/coredump/jitsi-stats-relay/
