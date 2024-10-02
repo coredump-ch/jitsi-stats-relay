@@ -60,11 +60,15 @@ def log_to_influxdb(
     """
     print(f'Tags: {tags}, Fields: {fields}')
 
+    def _force_float(field_name: str) -> None:
+        if field_name in fields:
+            fields[field_name] = float(fields[field_name])
+
     # Force data type for certain fields
-    if 'bit_rate_download' in fields:
-        fields['bit_rate_download'] = float(fields['bit_rate_download'])
-    if 'bit_rate_upload' in fields:
-        fields['bit_rate_upload'] = float(fields['bit_rate_upload'])
+    _force_float('bit_rate_download')
+    _force_float('bit_rate_upload')
+    _force_float('octo_send_bitrate')
+    _force_float('octo_receive_bitrate')
 
     json_body = [{
         'measurement': 'jvb_stats',
