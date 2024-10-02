@@ -59,6 +59,13 @@ def log_to_influxdb(
     Log the specified data to InfluxDB.
     """
     print(f'Tags: {tags}, Fields: {fields}')
+
+    # Force data type for certain fields
+    if 'bit_rate_download' in fields:
+        fields['bit_rate_download'] = float(fields['bit_rate_download'])
+    if 'bit_rate_upload' in fields:
+        fields['bit_rate_upload'] = float(fields['bit_rate_upload'])
+
     json_body = [{
         'measurement': 'jvb_stats',
         'tags': tags,
