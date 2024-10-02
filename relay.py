@@ -58,6 +58,7 @@ def log_to_influxdb(
     """
     Log the specified data to InfluxDB.
     """
+    print(f'Tags: {tags}, Fields: {fields}')
     json_body = [{
         'measurement': 'jvb_stats',
         'tags': tags,
