@@ -1,4 +1,4 @@
-[![Build status](https://img.shields.io/github/workflow/status/coredump-ch/jitsi-stats-relay/CI/main)](https://github.com/coredump-ch/jitsi-stats-relay/actions?query=workflow%3ACI)
+[![Build status](https://img.shields.io/github/actions/workflow/status/coredump-ch/jitsi-stats-relay/ci.yml?branch=main)](https://github.com/coredump-ch/jitsi-stats-relay/actions?query=workflow%3ACI)
 [![Docker][docker-badge]][docker]
 
 # Jitsi JVB InfluxDB Stats Relay
@@ -30,4 +30,4 @@ for every push to main.
 
 <!-- Badges -->
 [docker]: https://hub.docker.com/r/coredump/jitsi-stats-relay/
-[docker-badge]: https://img.shields.io/badge/docker%20image-coredump%2Fttn--relay-blue.svg
+[docker-badge]: https://img.shields.io/badge/docker%20image-coredump%2Fjitsi--stats--relay-blue.svg
